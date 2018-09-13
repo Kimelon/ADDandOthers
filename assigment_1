@@ -1,0 +1,61 @@
+import re
+def add(num):
+	#the type must be the same , if the num has the '.' or not .
+	if re.findall("\\.",num[0]):
+		a = float(num[0])
+	else:
+		a = int(num[0])
+	if re.findall("\\.",num[1]):
+		b = float(num[1])
+	else:
+		b = int(num[1])
+	return a + b
+
+def sub(num):
+	#the type must be the same , if the num has the '.' or not .
+	if re.findall("\\.",num[0]):
+		a = float(num[0])
+	else:
+		a = int(num[0])
+	if re.findall("\\.",num[1]):
+		b = float(num[1])
+	else:
+		b = int(num[1])
+	return a - b
+	
+def mul(num):
+	return float(num[0]) * float(num[1])
+
+def div(num):
+	return float(num[0]) / float(num[1])
+	
+print("welcome to use this simple caculator !")
+print("this caculator has the funtions including addition, subtraction, multiplication and division.")
+print("you can input 'help' to see the examples or input 'exit' to close the caculator.")
+
+while True:
+	cmd = input("input:")
+	if cmd == "help":
+		print("examples:")
+		print("1.8+1")
+		print("1.2-1")
+		print("2*2")
+		print("3/2")
+		print("Be careful that multiplication and division will be forced to excute float-point operation.")
+		continue
+	if cmd == "exit":
+		exit()
+		
+	num = re.findall("\d+\.\d|\d+", cmd)
+	operator = re.findall("\\+|\\-|\\*|\\/",cmd)
+	if operator[0] == "+":
+		result = add(num);
+	if operator[0] == "-":
+		result = sub(num);
+	if operator[0] == "*":
+		result = mul(num);
+	if operator[0] == "/":
+		result = div(num);
+	print(result)
+  git add
+  git commit
